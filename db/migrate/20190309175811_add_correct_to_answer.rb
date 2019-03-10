@@ -1,9 +1,5 @@
 class AddCorrectToAnswer < ActiveRecord::Migration[5.2]
-  def up
-    change_column_default(:answers, :correct, false)
-  end
-
-  def down
-    change_column_default(:answers, :correct, nil)
+  def change
+    add_column :answers, :correct, :boolean, default: false
   end
 end
