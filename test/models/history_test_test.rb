@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class TestHistoryTest < ActiveSupport::TestCase
+class HistoryTestTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end
