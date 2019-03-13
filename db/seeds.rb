@@ -55,3 +55,9 @@ end
 answers = answers_bodies.map.with_index(0) do |body, index|
   Answer.create!(body: body, question_id: questions[index].id)
 end
+
+
+HistoryTest.create!(user_id: users[1].id, test_id: tests[0].id)
+HistoryTest.create!(user_id: users[1].id, test_id: tests[2].id)
+HistoryTest.create!(user_id: users[1].id, test_id: tests[3].id)
+HistoryTest.create!(user_id: users[2].id, test_id: tests[4].id)
