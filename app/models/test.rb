@@ -1,5 +1,8 @@
 class Test < ApplicationRecord
-  def self.tests_category_sort_by_desc(category_title)
-    Test.joins("JOIN categories ON tests.category_id = categories.id AND categories.title = :title", title: category_title).order(title: :desc).pluck(:title)
+  belongs_to :category
+  has_many :test_histories
+
+  def self.find_by_category(title)
+    Test.joins(:category).where(categories: { title: title }).order(title: :desc).pluck(:title)
   end
 end
