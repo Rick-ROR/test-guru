@@ -45,7 +45,7 @@ categories = categories_titles.map do |title|
 end
 
 tests = tests_titles.map do |index, title, level|
-  Test.create!(title: title, level: level, category_id: categories[index].id)
+  Test.create!(title: title, level: level, category_id: categories[index].id, author_id: users[0].id)
 end
 
 questions = questions_bodies.map do |index, body|
