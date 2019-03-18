@@ -5,22 +5,21 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-User.destroy_all
-Category.destroy_all
-Test.destroy_all
-Question.destroy_all
-Answer.destroy_all
-HistoryTest.destroy_all
-
+#
+models = %w(User Category Test Question Answer HistoryTest)
+models.each{|model| model.constantize.destroy_all}
+# models.each do |model|
+#   ActiveRecord::Base.connection.execute("DELETE from sqlite_sequence where name = \'#{model.constantize.table_name}\'")
+# end
 
 categories_titles = %w[Птицы Рыбы Грибы]
 
 tests_titles = [
                 [0, 'Аист', 1],
-                [1, 'Скат', 1],
+                [1, 'Скат', 2],
                 [2, 'Шампиньон', 0],
                 [1, 'Мурена', 0],
-                [0, 'Зимородок', 2]]
+                [0, 'Зимородок', 3]]
 
 questions_bodies = [
                     [1,'Назовите самый большой вид Скатов?'],
@@ -29,16 +28,24 @@ questions_bodies = [
                     [0, 'Какова продолжительность жизни Белого аиста?'],
                     [4, 'Назовите ареалы обитания Зимородков?']]
 
-answers_bodies = ['Манта или гигантский морской дьявол',
-                 'Да',
-                 'Да',
-                 'Средняя продолжительность жизни 20 лет',
-                 'Евразии, в северо-западной части Африки, в Новой Зеландии, Индонезии, Новая Гвинея и Соломоновые острова']
+answers_bodies = [
+                  {'Манта или морской дьявол': true,
+                   'Орляковые скаты': false,
+                   'Крылатые орляки': false},
+                  {'Да': true,
+                   'Нет': false},
+                  {'Да': true,
+                   'Нет': false},
+                  {'Средняя продолжительность жизни 20 лет': true,
+                   'Средняя продолжительность жизни 30 лет': false},
+                  {'Евразии, в северо-западной части Африки, в Новой Зеландии, Индонезии, Новая Гвинея и Соломоновые острова': true,
+                   'Северо-западная часть Канады и Аляска': false}]
 
-users_names =  %w[Owner, Rick, Interviewed]
+
+users_names =  %w[Owner Rick Interviewed]
 
 users = users_names.map do |name|
-  User.create!(name: name)
+  User.create!(name: name, email: "#{name}@example.edu")
 end
 
 categories = categories_titles.map do |title|
@@ -53,8 +60,10 @@ questions = questions_bodies.map do |index, body|
   Question.create!(body: body, test_id: tests[index].id)
 end
 
-answers = answers_bodies.map.with_index(0) do |body, index|
-  Answer.create!(body: body, question_id: questions[index].id)
+answers_bodies.each.with_index(0) do |answers, index|
+    answers.each do |body, correct|
+      Answer.create!(body: body, correct: correct, question_id: questions[index].id)
+    end
 end
 
 
