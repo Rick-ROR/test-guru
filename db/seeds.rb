@@ -10,6 +10,7 @@ Category.destroy_all
 Test.destroy_all
 Question.destroy_all
 Answer.destroy_all
+HistoryTest.destroy_all
 
 
 categories_titles = %w[Птицы Рыбы Грибы]
