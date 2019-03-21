@@ -26,8 +26,8 @@ class QuestionsController < ApplicationController
   end
 
   def destroy
-    Question.destroy(params[:id])
-    redirect_to test_path(@question.test_id)
+    question = Question.destroy(params[:id])
+    redirect_to test_path(question.test_id)
   end
 
   private
