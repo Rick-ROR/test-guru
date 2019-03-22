@@ -1,5 +1,6 @@
 class QuestionsController < ApplicationController
   before_action :get_test, only: %i[index create]
+  before_action :get_question, only: %i[show destroy]
 
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_quest_404
 
@@ -8,7 +9,7 @@ class QuestionsController < ApplicationController
   end
 
   def show
-    render json: { questions: Question.find(params[:id])}
+    render json: { questions: @question}
   end
 
   def new
@@ -26,18 +27,22 @@ class QuestionsController < ApplicationController
   end
 
   def destroy
-    question = Question.destroy(params[:id])
+    question = @question.destroy
     redirect_to test_path(question.test_id)
   end
 
   private
+
+  def get_question
+    @question = Question.find(params[:id])
+  end
 
   def get_test
     @test = Test.find(params[:test_id])
   end
 
   def rescue_with_quest_404
-    render plain: '404. Этот вопрос мы ещё не успели добавить.'
+    render plain: '404. Этот вопрос мы ещё не успели добавить.', status: 404
   end
 
   def question_params
