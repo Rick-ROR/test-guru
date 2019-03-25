@@ -2,6 +2,7 @@
   <td><%= test.title %></td>
   <td><%= test_level(test) %></td>
   <td><%= test.questions.count %></td>
+  <td><%= test.author.name %></td>
   <td><%= link_to 'Прочитать', test_questions_path(test) %></td>
   <td><%= link_to 'Изменить', edit_test_path(test) %></td>
   <td>
