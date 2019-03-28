@@ -1,0 +1,12 @@
+<p>
+  <strong>Название:</strong>
+  <%= @test.title %>
+</p>
+
+<p>
+  <strong>Сложность:</strong>
+  <%= @test.level %>
+</p>
+
+<%= link_to 'Изменить', edit_test_path(@test) %> |
+<%= link_to 'Назад', tests_path %>
