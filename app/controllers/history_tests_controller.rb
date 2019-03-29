@@ -1,11 +1,11 @@
 class HistoryTestsController < ApplicationController
-
   before_action :get_history_test, only: %i[show result update]
-  before_action :get_score, only: :result
+
   def	show
   end
 
   def	result
+    @score = @history_test.score_test
   end
 
   def	update
@@ -23,9 +23,4 @@ class HistoryTestsController < ApplicationController
   def get_history_test
     @history_test = HistoryTest.find(params[:id])
   end
-
-  def get_score
-    @score = @history_test.score_test
-  end
-  
 end

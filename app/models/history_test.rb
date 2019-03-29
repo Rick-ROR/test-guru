@@ -25,7 +25,7 @@ class HistoryTest < ApplicationRecord
   end
 
   def passed?
-    true if score_test > PASS_SCORE
+    score_test > PASS_SCORE
   end
 
   def show_progress
