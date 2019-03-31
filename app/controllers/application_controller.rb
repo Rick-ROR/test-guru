@@ -3,10 +3,13 @@ class ApplicationController < ActionController::Base
   helper_method :current_user,
                 :logged_in?
 
+  before_action :authenticate_user!
+
   private
 
   def authenticate_user!
     unless current_user
+      cookies[:after_login_path] = request.path
       redirect_to login_path, alert: 'Авторизуйтесь пожалуйста!'
     end
   end
