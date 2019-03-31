@@ -3,5 +3,12 @@
   <%= @question.body %>
 </p>
 
+<h2>Ответы:</h2> I
+<%= link_to 'Добавить ответ', new_question_answer_path(@question) %>
+
+<ol>
+  <%= render @question.answers %>
+</ol>
+
 <%= link_to 'Изменить', edit_question_path(@question) %> |
-<%= link_to 'Назад', test_questions_path(@question.test) %>
+<%= link_to 'Назад', test_path(@question.test) %>

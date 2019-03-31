@@ -1,5 +1,5 @@
 class TestsController < ApplicationController
-  before_action :get_test, only: %i[show edit update destroy]
+  before_action :get_test, only: %i[show edit update destroy start]
 
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_quest_404
 
@@ -40,6 +40,12 @@ class TestsController < ApplicationController
     redirect_to tests_path
   end
 
+  def start
+    @user = User.first
+    @user.tests.push(@test)
+    redirect_to @user.test_passage(@test)
+  end
+
   private
 
   def rescue_with_quest_404
@@ -47,7 +53,7 @@ class TestsController < ApplicationController
   end
 
   def get_test
-    @test =Test.find(params[:id])
+    @test = Test.find(params[:id])
   end
 
   def test_params

@@ -5,8 +5,15 @@
 
 <p>
   <strong>Сложность:</strong>
-  <%= @test.level %>
+  <%= test_level(@test) %>
 </p>
 
+<h2>Вопросы:</h2>
+
+<ol>
+  <%= render @test.questions %>
+</ol>
+
+<%= link_to 'Добавить новый', new_test_question_path(@test) %> |
 <%= link_to 'Изменить', edit_test_path(@test) %> |
 <%= link_to 'Назад', tests_path %>
