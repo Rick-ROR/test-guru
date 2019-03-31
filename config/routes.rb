@@ -1,12 +1,15 @@
 Rails.application.routes.draw do
 
+  get 'sessions/new'
   root 'tests#index'
 
   get 'users/new'
 
   get :signup, to: 'users#new'
+  get :login, to: 'sessions#new'
 
   resources :users, only: :create
+  resources :sessions, only: :create
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :tests do
