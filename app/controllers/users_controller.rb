@@ -23,8 +23,9 @@ class UsersController < ApplicationController
   private
 
   def email_unique?(email)
-    flash.now[:alert] = '%username% c таким e-mail уже существует!'
-    User.where(email: email).blank?
+    result = User.where(email: email).blank?
+    flash.now[:alert] = '%username% c таким e-mail уже существует!' unless result
+    result
   end
 
   def user_params
