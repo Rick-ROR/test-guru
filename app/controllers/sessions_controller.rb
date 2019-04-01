@@ -12,7 +12,6 @@ class SessionsController < ApplicationController
     if user&.authenticate(params[:password])
       session[:user_id] = user.id
       redirect_to cookies[:after_login_path] || tests_path
-      cookies.delete :after_login_path if cookies[:after_login_path]
     else
       flash.now[:alert] = 'Авторизуйтесь пожалуйста!'
       render :new
@@ -20,6 +19,7 @@ class SessionsController < ApplicationController
   end
 
   def drop
+    cookies.delete :after_login_path
     session.delete(:user_id)
     @current_user = nil
     redirect_to login_path
