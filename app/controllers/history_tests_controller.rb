@@ -1,4 +1,5 @@
 class HistoryTestsController < ApplicationController
+  before_action :authenticate_user!
   before_action :get_history_test, only: %i[show result update]
 
   def	show
@@ -12,6 +13,7 @@ class HistoryTestsController < ApplicationController
     @history_test.accept!(params[:answer_ids])
 
     if @history_test.completed?
+      TestsMailer.completed_test(@history_test).deliver_now
       redirect_to result_history_test_path(@history_test)
     else
       render :show
