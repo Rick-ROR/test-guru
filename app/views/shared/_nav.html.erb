@@ -1,0 +1,8 @@
+<% if logged_in? %>
+  <p class="nav user">Привет, <b><%= current_user.name %></b> ! <%= link_to '#Guru', tests_path %> </p>
+  <p class="nav user"><%= link_to 'Выйти', logout_path %></p>
+<% elsif current_page?(signup_path) %>
+  <p class="nav user"><%= link_to 'Войти', login_path %></p>
+<% else %>
+  <p class="nav user"><%= link_to 'Регистрация тут', signup_path %></p>
+<% end %>
