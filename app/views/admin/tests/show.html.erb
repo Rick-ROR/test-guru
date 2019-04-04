@@ -1,0 +1,19 @@
+<p>
+  <strong>Название:</strong>
+  <%= @test.title %>
+</p>
+
+<p>
+  <strong>Сложность:</strong>
+  <%= test_level(@test) %>
+</p>
+
+<h2>Вопросы:</h2>
+
+<ol>
+  <%= render @test.questions %>
+</ol>
+
+<%= link_to 'Добавить новый', new_admin_test_question_path(@test) %> |
+<%= link_to 'Изменить', edit_admin_test_path(@test) %> |
+<%= link_to 'Назад', admin_tests_path %>

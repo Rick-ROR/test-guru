@@ -1,0 +1,9 @@
+<h1>Добавим новый ответ:</h1>
+
+<p>
+  <%= @question.body %>
+</p>
+
+<%= render 'form', answer: @answer %>
+
+<%= link_to 'Назад', admin_question_path(@question) %>

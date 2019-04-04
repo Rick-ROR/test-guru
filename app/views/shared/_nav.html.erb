@@ -1,8 +1,12 @@
-<% if logged_in? %>
-  <p class="nav user">Привет, <b><%= current_user.name %></b> ! <%= link_to '#Guru', tests_path %> </p>
-  <p class="nav user"><%= link_to 'Выйти', logout_path %></p>
-<% elsif current_page?(signup_path) %>
-  <p class="nav user"><%= link_to 'Войти', login_path %></p>
+<% if user_signed_in? %>
+  <p class="nav user">
+    Привет, <b><%= current_user.name %></b> ! <%= link_to '#Guru', tests_path %>
+  </p>
+  <p class="nav user">
+    <%= link_to 'Выйти', destroy_user_session_path, method: :delete %>
+  </p>
+<% elsif current_page?(new_user_registration_path) %>
+  <p class="nav user"><%= link_to 'Войти', new_user_session_path %></p>
 <% else %>
-  <p class="nav user"><%= link_to 'Регистрация тут', signup_path %></p>
+  <p class="nav user"><%= link_to 'Регистрация тут', new_user_registration_path %></p>
 <% end %>

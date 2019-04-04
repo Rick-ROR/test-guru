@@ -1,0 +1,12 @@
+<tr>
+  <td><%= link_to 'Прочитать', admin_question_path(question) %></td>
+  <td><%= link_to 'Изменить', edit_admin_question_path(question) %></td>
+  <td>
+    <%= link_to 'Удалить',
+                admin_question_path(question),
+                method: :delete,
+                data:	{	confirm:	'Вы уверены?' }	%>
+  </td>
+  <td><%= question.body %></td>
+</tr>
+<br>
