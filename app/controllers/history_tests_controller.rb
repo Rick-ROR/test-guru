@@ -1,5 +1,5 @@
 class HistoryTestsController < ApplicationController
-  before_action :authenticate_user!
+
   before_action :get_history_test, only: %i[show result update]
 
   def	show
