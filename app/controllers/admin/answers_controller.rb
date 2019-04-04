@@ -31,8 +31,8 @@ class Admin::AnswersController < Admin::BaseController
   end
 
   def destroy
-    answer = @answer.destroy
-    redirect_to admin_question_path(answer.question)
+    @answer.destroy
+    redirect_to admin_question_path(@answer.question)
   end
 
   private
