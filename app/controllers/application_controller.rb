@@ -14,7 +14,7 @@ class ApplicationController < ActionController::Base
   private
 
   def after_sign_in_path_for(resource)
-    flash[:notice] = "Привет, #{current_user.name}!"
-    current_user.admin? ? admin_tests_path : super
+    flash[:notice] = "Привет, #{resource.name}!"
+    resource.admin? ? admin_tests_path : super
   end
 end
