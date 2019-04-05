@@ -3,12 +3,12 @@
   <td><%= test_level(test) %></td>
   <td><%= test.questions.count %></td>
   <td><%= test.author.name %></td>
-  <td><%= link_to 'Прочитать', admin_test_path(test) %></td>
-  <td><%= link_to 'Изменить', edit_admin_test_path(test) %></td>
+  <td><%= link_to t('show'), admin_test_path(test) %></td>
+  <td><%= link_to t('edit'), edit_admin_test_path(test) %></td>
   <td>
-    <%= link_to 'Удалить',
+    <%= link_to t('delete'),
                 admin_test_path(test),
                 method: :delete,
-                data:	{	confirm:	'Вы уверены?' }	%>
+                data:	{	confirm: t('.confirm') }	%>
     </td>
 </tr>

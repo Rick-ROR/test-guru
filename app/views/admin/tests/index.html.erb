@@ -1,16 +1,16 @@
 <h1>Список тестов:</h1>
 
 <p>
-  <%= link_to 'Создать тест', new_admin_test_path %>
+  <%= link_to t('.create'), new_admin_test_path %>
 </p>
 
 <table>
   <tr>
-    <th>Название</th>
-    <th>Сложность</th>
-    <th>Кол-во вопросов</th>
-    <th>Автор</th>
-    <th colspan="3">Действия</th>
+    <th><%= t('.title') %></th>
+    <th><%= t('.level') %></th>
+    <th><%= t('.questions') %></th>
+    <th><%= t('.author') %></th>
+    <th colspan="3"><%= t('.action') %></th>
   </tr>
   <%= render @tests %>
 

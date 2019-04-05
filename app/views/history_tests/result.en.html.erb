@@ -1,0 +1,9 @@
+<h2>The test "<%= @history_test.test.title %>" has been completed!</h2>
+
+<% if @history_test.passed? %>
+  <h3 class="passed">Your result: <%= @score %>% Well done!</h3>
+<% else %>
+  <h3 class="failed">Your result: <%= @score %>% Need to try harder!</h3>
+<% end %>
+
+<%= link_to t('.back_tests'), tests_path %>

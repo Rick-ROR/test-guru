@@ -1,4 +1,4 @@
-<h1>Прохождение теста "<%= @history_test.test.title %>"</h1>
+<h1><%= t('.header', title: @history_test.test.title) %></h1>
 
 <b>
   <%= @history_test.current_question.body %>
@@ -12,11 +12,10 @@
     </p>
   <% end %>
 
-  <p><%= form.submit 'Отправить' %></p>
+  <p><%= form.submit %></p>
 <% end %>
 
 <p>
-Прогресс теста: <%= @history_test.show_progress %> |
-
-<%= link_to 'Назад к тестам', tests_path %>
+  <%= t('.show_progress', show: @history_test.show_progress) %> |
+  <%= link_to t('.back_tests'), tests_path %>
 </p>

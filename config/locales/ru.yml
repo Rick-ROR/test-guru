@@ -31,3 +31,66 @@
 
 ru:
   hello: "Хааай!"
+  back: "Назад"
+  back_tests: "Назад к тестам"
+  show: "Прочитать"
+  edit: "Изменить"
+  delete: "Удалить"
+
+  helpers:
+    select:
+      prompt: "Выберите из списка"
+    submit:
+      create: "Создать"
+      submit: "Отправить"
+      update: "Обновить"
+      history_tests:
+        submit: "Отправить"
+    label:
+      test:
+        title: "Название"
+        level: "Сложность"
+        category_id: "Категория"
+        author_id: "Автор"
+
+  shared:
+    nav:
+      welcome: "Привет"
+      logout: "Выйти"
+      login: "Войти"
+      regist: "Регистрация тут"
+
+  tests:
+    index:
+     header: "Список тестов:"
+     title: "Название"
+     level: "Сложность"
+     author: "Автор"
+     action: "Действия"
+     questions: "Вопросов"
+    test:
+      start: "Старт"
+  history_tests:
+    show:
+      header: "Прохождение теста %{title}:"
+      Прогресс теста: "Test progress: %{show}"
+
+  admin:
+    tests:
+      index:
+        header: "Tests list:"
+        title: "Title"
+        level: "Level"
+        author: "Author"
+        action: "Actions"
+        questions: "Questions"
+        create: "Создать тест"
+      show:
+        title: "Название"
+        level: "Сложность"
+        ques: "Вопросы"
+        add_new: "Добавить новый"
+      test:
+        confirm: "Вы уверены?"
+      edit:
+        header: "Здесь можно изменить тест: %{title}!"
