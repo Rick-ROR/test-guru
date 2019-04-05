@@ -46,6 +46,12 @@ en:
       logout: "Logout"
       login: "Login"
       regist: "Registration"
+    errors:
+      header:
+        one: "%{count} error detected"
+        other: "%{count} errors detected"
+
+
 
   helpers:
     select:
@@ -97,4 +103,6 @@ en:
         confirm: "Are you sure?"
       edit:
         header: "Here you can change the test: %{title}!"
+      create:
+        success: "Test successfully added!"
 
