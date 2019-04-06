@@ -83,6 +83,7 @@ en:
     show:
       header: "Passing the test %{title}:"
       show_progress: "Test progress: %{show}"
+      send: "Send"
 
   admin:
     tests:

@@ -85,16 +85,17 @@ ru:
     show:
       header: "Прохождение теста %{title}:"
       Прогресс теста: "Test progress: %{show}"
+      send: "Отправить"
 
   admin:
     tests:
       index:
-        header: "Tests list:"
-        title: "Title"
-        level: "Level"
-        author: "Author"
-        action: "Actions"
-        questions: "Questions"
+        header: "Список тестов:"
+        title: "Название"
+        level: "Сложность"
+        author: "Автор"
+        action: "Действия"
+        questions: "Вопросы"
         create: "Создать тест"
       show:
         title: "Название"
