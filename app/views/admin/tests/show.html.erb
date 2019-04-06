@@ -1,19 +1,19 @@
 <p>
-  <strong>Название:</strong>
+  <strong><%= t('.title')%>:</strong>
   <%= @test.title %>
 </p>
 
 <p>
-  <strong>Сложность:</strong>
+  <strong><%= t('.level')%>:</strong>
   <%= test_level(@test) %>
 </p>
 
-<h2>Вопросы:</h2>
+<h2><%= t('.ques')%>:</h2>
 
 <ol>
   <%= render @test.questions %>
 </ol>
 
-<%= link_to 'Добавить новый', new_admin_test_question_path(@test) %> |
-<%= link_to 'Изменить', edit_admin_test_path(@test) %> |
-<%= link_to 'Назад', admin_tests_path %>
+<%= link_to t('.add_new'), new_admin_test_question_path(@test) %> |
+<%= link_to t('edit'), edit_admin_test_path(@test) %> |
+<%= link_to t('back_tests'), admin_tests_path %>

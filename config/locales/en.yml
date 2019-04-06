@@ -31,3 +31,79 @@
 
 en:
   hello: "Hello world"
+  back: "Back"
+  back_tests: "Back to tests"
+  show: "Show"
+  edit: "Edit"
+  delete: "Delete"
+
+  layouts:
+    application:
+
+  shared:
+    nav:
+      welcome: "Hi"
+      logout: "Logout"
+      login: "Login"
+      regist: "Registration"
+    errors:
+      header:
+        one: "%{count} error detected"
+        other: "%{count} errors detected"
+
+
+
+  helpers:
+    select:
+      prompt: "Please select"
+    submit:
+      create: "Create"
+      submit: "Send"
+      update: "Save"
+      history_test:
+        submit: "Send"
+    label:
+      test:
+        title: "Title"
+        level: "Level"
+        category_id: "Category"
+        author_id: "Author"
+
+  tests:
+    index:
+      header: "Tests list:"
+      title: "Title"
+      level: "Level"
+      author: "Author"
+      action: "Actions"
+      questions: "Questions"
+    test:
+      start: "Start"
+  history_tests:
+    show:
+      header: "Passing the test %{title}:"
+      show_progress: "Test progress: %{show}"
+      send: "Send"
+
+  admin:
+    tests:
+      index:
+        header: "Tests list:"
+        title: "Title"
+        level: "Level"
+        author: "Author"
+        action: "Actions"
+        questions: "Questions"
+        create: "Create test"
+      show:
+        title: "Title"
+        level: "Level"
+        ques: "Questions"
+        add_new: "Add new"
+      test:
+        confirm: "Are you sure?"
+      edit:
+        header: "Here you can change the test: %{title}!"
+      create:
+        success: "Test successfully added!"
+
