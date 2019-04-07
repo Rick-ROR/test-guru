@@ -1,0 +1,10 @@
+<nav class="navbar navbar-light border-top border-bottom" style="background-color: #ecf5fc">
+  <%= link_to 'TestGuru', root_path, class: "navbar-brand" %>
+  <% if current_user&.admin? %>
+    <%= link_to 'TestGuru Admin Panel', admin_tests_path, class: "navbar-brand" %>
+  <% end %>
+  <span class="navbar-text">
+    <%= render 'shared/nav'%>
+  </span>
+</nav>
+

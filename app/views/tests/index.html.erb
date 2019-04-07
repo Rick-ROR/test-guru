@@ -1,13 +1,19 @@
-<h1><%= t('.header') %></h1>
+<div class="p-3 bg-gradient-light text-dark">
+  <h1><%= t('.header') %></h1>
+</div>
 
-<table>
-  <tr>
-    <th><%= t('.title') %></th>
-    <th><%= t('.level') %></th>
-    <th><%= t('.questions') %></th>
-    <th><%= t('.author') %></th>
-    <th><%= t('.action') %></th>
-  </tr>
-  <%= render @tests %>
+<div class="p-2">
+  <table class="table">
+    <thead class="thead-light">
+      <tr>
+        <th><%= t('.title') %></th>
+        <th><%= t('.level') %></th>
+        <th><%= t('.questions') %></th>
+        <th><%= t('.author') %></th>
+        <th><%= t('.action') %></th>
+      </tr>
+    </thead>
+    <%= render @tests %>
 
-</table>
+  </table>
+</div>
