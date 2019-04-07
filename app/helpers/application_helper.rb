@@ -11,7 +11,7 @@ module ApplicationHelper
   DEFAULT_ALERT = 'info'
 
   def bootstrap_alert(alert)
-    css_class = ALERT_CLASSES[alert] || DEFAULT_ALERT
+    css_class = ALERT_CLASSES[alert.to_sym] || DEFAULT_ALERT
     "alert alert-#{css_class}"
   end
 end
