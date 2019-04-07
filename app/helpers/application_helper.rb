@@ -8,7 +8,7 @@ module ApplicationHelper
   end
   
   ALERT_CLASSES = { success: "success", notice: 'info', alert: 'danger' }
-  DEFAULT_ALERT = :notice
+  DEFAULT_ALERT = 'info'
 
   def bootstrap_alert(alert)
     css_class = ALERT_CLASSES[alert] || DEFAULT_ALERT
