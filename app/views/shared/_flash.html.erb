@@ -1,3 +1,4 @@
 <% flash.each do |key, message| %>
-  <%= content_tag :p, message, class: "flash #{key}" %>
+  <%= content_tag :div, message, class: bootstrap_alert(key) %>
 <% end %>
+
