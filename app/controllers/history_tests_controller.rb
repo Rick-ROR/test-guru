@@ -21,9 +21,10 @@ class HistoryTestsController < ApplicationController
   end
 
   def gist
-    result = GistQuestionService.new(@history_test.current_question).call
-    flash_options = if result.success?
-      { notice: t('.success') }
+    client = GistQuestionService.new(@history_test.current_question).call
+
+    flash_options = if client.status == 201
+      { notice: t('.success', url: "#{view_context.link_to("GIST", client.data.html_url, target: "_blank")}") }
     else
       { alert: t('.failure') }
     end

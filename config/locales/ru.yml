@@ -37,6 +37,8 @@ ru:
   edit: "Изменить"
   delete: "Удалить"
 
+  gist_params: "Вопрос теста %{title} от TestGuru"
+
   layouts:
     application:
 
@@ -87,7 +89,7 @@ ru:
       Прогресс теста: "Test progress: %{show}"
       send: "Отправить"
     gist:
-      success: "Gist успешно сохранён."
+      success: "Новый %{url} успешно создан."
       failure: "Во время сохранения gist произошла ошибка!"
 
   admin:
