@@ -1,3 +1,10 @@
 @import "bootstrap";
 
 body {background-color: #fdf6e3;}
+
+//@media (min-width: 2560px){
+//@media (min-resolution: 110dpi){
+//@media (min-resolution: 96dpi){
+@media (min-device-width: 2500px){
+  body {font-weight: 600;}
+}
