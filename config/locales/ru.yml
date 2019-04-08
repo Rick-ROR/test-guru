@@ -86,6 +86,9 @@ ru:
       header: "Прохождение теста %{title}:"
       Прогресс теста: "Test progress: %{show}"
       send: "Отправить"
+    gist:
+      success: "Gist успешно сохранён."
+      failure: "Во время сохранения gist произошла ошибка!"
 
   admin:
     tests:

@@ -84,6 +84,9 @@ en:
       header: "Passing the test %{title}:"
       show_progress: "Test progress: %{show}"
       send: "Send"
+    gist:
+      success: "Gist was successfully created."
+      failure: "An error occurred while saving gist!"
 
   admin:
     tests:

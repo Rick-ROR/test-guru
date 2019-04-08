@@ -1,8 +1,8 @@
 <h1><%= t('.header', title: @history_test.test.title) %></h1>
 
-<b>
+<p>
   <%= @history_test.current_question.body %>
-</b>
+</p>
 
 <%= form_with url: history_test_path(@history_test), local: true, method: :put do |form| %>
   <%= form.collection_check_boxes :answer_ids, @history_test.current_question.answers, :id, :body, include_hidden: false do |b| %>
@@ -12,6 +12,7 @@
     </p>
   <% end %>
 
+  <p><%= link_to 'Gist Question', gist_history_test_path(@history_test), method: :post %></p>
   <p><%= form.submit t('.send')%></p>
 <% end %>
 

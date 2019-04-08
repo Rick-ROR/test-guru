@@ -1,6 +1,6 @@
 class HistoryTestsController < ApplicationController
 
-  before_action :get_history_test, only: %i[show result update]
+  before_action :get_history_test, only: %i[show result update gist]
 
   def	show
   end
@@ -18,6 +18,16 @@ class HistoryTestsController < ApplicationController
     else
       render :show
     end
+  end
+
+  def gist
+    result = GistQuestionService.new(@history_test.current_question).call
+    flash_options = if result.success?
+      { notice: t('.success') }
+    else
+      { alert: t('.failure') }
+    end
+    redirect_to @history_test, flash_options
   end
 
   private
