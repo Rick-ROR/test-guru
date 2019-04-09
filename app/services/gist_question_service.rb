@@ -1,4 +1,5 @@
 class GistQuestionService
+
   def initialize(question, client: nil)
     @question = question
     @test = @question.test
@@ -9,12 +10,16 @@ class GistQuestionService
     retries ||= 1
     
     @client.create_gist(gist_params)
-    @client.last_response
 
   rescue Faraday::ConnectionFailed => e
     sleep(2 * retries)
-    retry if (retries += 1) < 3
+    retry if (retries += 1) < 4
     return nil
+  end
+
+
+  def success?
+    @client.last_response&.status == 201
   end
 
   private

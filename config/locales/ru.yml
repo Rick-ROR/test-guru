@@ -88,7 +88,7 @@ ru:
   history_tests:
     show:
       header: "Прохождение теста %{title}:"
-      Прогресс теста: "Test progress: %{show}"
+      show_progress: "Вопросов: %{show}"
       send: "Отправить"
     gist:
       success: "Новый %{url} успешно создан."

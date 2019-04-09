@@ -21,12 +21,13 @@ class HistoryTestsController < ApplicationController
   end
 
   def gist
-    client = GistQuestionService.new(@history_test.current_question).call
-    gist_new = Gist.new(user_id: current_user.id, question_id: @history_test.current_question.id, url: client.data.id) if client
+    client = GistQuestionService.new(@history_test.current_question)
+    response = client.call
 
-    flash_options = if client&.status == 201 && gist_new.valid?
-                      gist_new.save
-                      { notice: t('.success', url: "#{view_context.link_to("GIST", client.data.html_url, target: "_blank")}") }
+    flash_options = if client.success?
+                      current_user.gists.create(question_id: @history_test.current_question.id, url: response.id)
+
+                      { notice: t('.success', url: "#{view_context.link_to("GIST", response.html_url, target: "_blank")}") }
                     else
                       { alert: t('.failure') }
                     end
