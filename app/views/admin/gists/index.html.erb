@@ -1,0 +1,17 @@
+<div class="p-3 bg-gradient-light text-dark">
+  <h1><%= t('.header') %>:</h1>
+</div>
+
+<table class="table">
+  <thead class="thead-light">
+    <tr>
+      <th>URL</th>
+      <th><%= t('.question') %></th>
+      <th><%= t('.author') %></th>
+      <th><%= t('.date') %></th>
+      <th><%= t('action') %></th>
+    </tr>
+  </thead>
+  <%= render @gists %>
+
+</table>

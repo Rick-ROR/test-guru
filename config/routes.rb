@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   resources :history_tests, only: %i[show update] do
     member do
       get :result
+      post :gist
     end
   end
 
@@ -23,6 +24,8 @@ Rails.application.routes.draw do
         resources :answers, shallow: true, except: :index
       end
     end
+    
+    resources :gists, only: %i[index destroy]
   end
 
 end

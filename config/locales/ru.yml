@@ -37,6 +37,10 @@ ru:
   edit: "Изменить"
   delete: "Удалить"
 
+  gist_params: "Вопрос теста %{title} от TestGuru"
+  confirm: "Вы уверены?"
+  action: "Действия"
+
   layouts:
     application:
 
@@ -84,8 +88,11 @@ ru:
   history_tests:
     show:
       header: "Прохождение теста %{title}:"
-      Прогресс теста: "Test progress: %{show}"
+      show_progress: "Вопросов: %{show}"
       send: "Отправить"
+    gist:
+      success: "Новый %{url} успешно создан."
+      failure: "Во время сохранения gist произошла ошибка!"
 
   admin:
     tests:
@@ -108,6 +115,13 @@ ru:
         header: "Здесь можно изменить тест: %{title}!"
       create:
         success: "Тест успешно добавлен!"
+    gists:
+      index:
+        header: "Список gists"
+        question: "Вопрос"
+        author: "Автор"
+        date: "Дата создания"
+
 
   errors:
     format: "%{attribute} %{message}"

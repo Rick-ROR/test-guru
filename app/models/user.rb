@@ -14,6 +14,8 @@ class User < ApplicationRecord
   has_many :history_tests
   has_many :tests, through: :history_tests
   has_many :author_tests, foreign_key: 'author_id', class_name: 'Test'
+  has_many :gists
+  has_many :question, through: :gists
   
   validates :name, :email, presence: true
   validates :email, uniqueness: { case_sensitive: false },
