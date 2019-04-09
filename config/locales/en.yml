@@ -38,6 +38,8 @@ en:
   delete: "Delete"
 
   gist_params: "A question about %{title} from TestGuru"
+  confirm: "Are you sure?"
+  action: "Actions"
 
   layouts:
     application:
@@ -87,7 +89,7 @@ en:
       show_progress: "Test progress: %{show}"
       send: "Send"
     gist:
-      success: "Gist was successfully created."
+      success: "%{url} was successfully created."
       failure: "An error occurred while saving gist!"
 
   admin:
@@ -111,4 +113,9 @@ en:
         header: "Here you can change the test: %{title}!"
       create:
         success: "Test successfully added!"
-
+    gists:
+      index:
+        header: "List gists"
+        question: "Question"
+        author: "Author"
+        date: "Created"

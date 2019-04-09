@@ -38,6 +38,8 @@ ru:
   delete: "Удалить"
 
   gist_params: "Вопрос теста %{title} от TestGuru"
+  confirm: "Вы уверены?"
+  action: "Действия"
 
   layouts:
     application:
@@ -113,6 +115,13 @@ ru:
         header: "Здесь можно изменить тест: %{title}!"
       create:
         success: "Тест успешно добавлен!"
+    gists:
+      index:
+        header: "Список gists"
+        question: "Вопрос"
+        author: "Автор"
+        date: "Дата создания"
+
 
   errors:
     format: "%{attribute} %{message}"

@@ -1,0 +1,12 @@
+<tr>
+  <td><%= link_to gist.url, 'https://gist.github.com/' + gist.url, target: "_blank" %></td>
+  <td><%= link_to cut_body(gist), admin_question_path(gist.question) %></td>
+  <td><%= gist.user.email %></td>
+  <td><%= gist.created_at.strftime("%Y.%m.%d %H:%M %p") %></td>
+  <td>
+  <%= link_to t('delete'),
+                admin_gist_path(gist),
+                method: :delete,
+                data:	{	confirm: t('confirm') }, class: "btn btn-warning"	%>
+  </td>
+</tr>
