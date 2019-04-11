@@ -16,15 +16,14 @@ function validatePasswordFields() {
     } else if (password.value == password_confirmation.value) {
         showAlert('Пароли совпадают', false, 'alert-success')
     } else {
-        showAlert('Пароли не совпадают!', false, 'alert-warning')
+        showAlert('Пароли не совпадают!', false, 'alert-danger')
     }
 }
 
-function showAlert(msg='', hide=false, alert='alert-danger') {
+function showAlert(msg = '', hide = false, alert = 'alert-danger') {
     var alert_div = document.createElement('div')
     alert_div.classList.add('flash', 'alert', alert)
     if (hide) { alert_div.classList.add('hide') }
-    alert_div.classList.add('mt-3')
     alert_div.textContent = msg
 
     var alert_div_old = document.querySelector('.flash')
