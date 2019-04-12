@@ -55,7 +55,12 @@ en:
         one: "%{count} error detected"
         other: "%{count} errors detected"
 
-
+  devise:
+    registrations:
+      new:
+        header: "Sign up"
+        alert-success: "Passwords match."
+        alert-danger: "Passwords do not match!"
 
   helpers:
     select:

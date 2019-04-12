@@ -57,6 +57,14 @@ ru:
         many: "Обнаружено %{count} ошибок"
         other: "Обнаружено %{count} ошибки"
 
+  devise:
+    registrations:
+      new:
+        header: "Добро пожаловать"
+        alert-success: "Пароли совпадают."
+        alert-danger: "Пароли не совпадают!"
+
+
   helpers:
     select:
       prompt: "Выберите из списка"
