@@ -123,6 +123,8 @@ ru:
         header: "Здесь можно изменить тест: %{title}!"
       create:
         success: "Тест успешно добавлен!"
+      form_inline:
+        submit: "Ok"
     gists:
       index:
         header: "Список gists"
