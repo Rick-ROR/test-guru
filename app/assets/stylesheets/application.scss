@@ -1,4 +1,6 @@
 @import "bootstrap";
+@import "typography/icons";
+@import "global";
 
 body {background-color: #fdf6e3;}
 
@@ -7,4 +9,18 @@ body {background-color: #fdf6e3;}
 //@media (min-resolution: 96dpi){
 @media (min-device-width: 2500px){
   body {font-weight: 600;}
+}
+
+
+.flash .octicon {
+  width: 28px;
+  height: 28px;
+}
+
+.col .flash {
+  padding: 0.55rem 1.25rem;
+  margin: 20px 0;
+}
+.col span.alert-text {
+  margin: 10px 45px;
 }
