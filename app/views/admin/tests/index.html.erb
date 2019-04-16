@@ -6,6 +6,8 @@
   <%= link_to t('.create'), new_admin_test_path, class: "btn btn-outline-success" %>
 </p>
 
+<%= render 'shared/errors', resource: @test %>
+
 <table class="table">
   <thead class="thead-light">
     <tr>

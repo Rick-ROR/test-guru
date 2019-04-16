@@ -118,6 +118,8 @@ en:
         header: "Here you can change the test: %{title}!"
       create:
         success: "Test successfully added!"
+      form_inline:
+        submit: "Ok"
     gists:
       index:
         header: "List gists"
