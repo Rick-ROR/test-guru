@@ -18,9 +18,8 @@
 
 
 <div class="progress">
-  <%= content_tag :div, "Пройдено вопросов: " + @history_test.show_progress, class: 'progress-bar', data: { progress: @history_test.show_progress } %>
+  <%= content_tag :div, "Пройдено вопросов: " + @history_test.show_progress, class: 'progress-bar bg-info', data: { progress: @history_test.show_progress } %>
 </div>
 <p>
-  <%= t('.show_progress', show: @history_test.show_progress) %> |
   <%= link_to t('.back_tests'), tests_path %>
 </p>

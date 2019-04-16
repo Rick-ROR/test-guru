@@ -27,7 +27,7 @@ class HistoryTest < ApplicationRecord
   end
 
   def show_progress
-    "#{test.questions.index(current_question) + 1} / #{test.questions.count}"
+    "#{test.questions.index(current_question)} / #{test.questions.count}"
   end
 
   private
