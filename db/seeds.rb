@@ -45,7 +45,7 @@ answers_bodies = [
 users_names =  %w[Owner Rick Interviewed]
 
 users = users_names.map do |name|
-  User.create!(name: name, email: "#{name}@example.edu")
+  User.create!(name: name, email: "#{name}@example.edu", password: "#{name}@example.edu")
 end
 
 categories = categories_titles.map do |title|
