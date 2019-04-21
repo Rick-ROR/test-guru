@@ -1,0 +1,31 @@
+body {background-color: #fdf6e3;}
+
+//@media (min-width: 2560px){
+//@media (min-resolution: 110dpi){
+//@media (min-resolution: 96dpi){
+@media (min-device-width: 2500px){
+  body {font-weight: 600;}
+}
+
+
+.flash .octicon {
+  width: 28px;
+  height: 28px;
+}
+
+.col .flash {
+  padding: 0.55rem 1.25rem;
+  margin: 20px 0;
+}
+.col span.alert-text {
+  margin: 10px 45px;
+}
+
+.progress {
+  height: 2rem;
+}
+
+.progress-bar {
+  font-size: 1.1rem;
+  color: #000;
+}

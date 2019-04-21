@@ -98,6 +98,7 @@ ru:
       header: "Прохождение теста %{title}:"
       show_progress: "Вопросов: %{show}"
       send: "Отправить"
+      send2gist: "Отправить вопрос на Gist"
     gist:
       success: "Новый %{url} успешно создан."
       failure: "Во время сохранения gist произошла ошибка!"

@@ -1,6 +1,6 @@
 class CommunicationController < ApplicationController
   skip_before_action :authenticate_user!
-  before_action :validate_params, only: %i[feedback_send]
+  before_action :validate_mail, only: %i[feedback_send]
 
   def feedback;
     @last_body = params[:feedback]
