@@ -96,6 +96,9 @@ en:
     gist:
       success: "%{url} was successfully created."
       failure: "An error occurred while saving gist!"
+  communication:
+    feedback:
+      header: "We are waiting for your Feedbacks"
 
   admin:
     tests:

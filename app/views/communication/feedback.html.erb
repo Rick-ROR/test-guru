@@ -1,0 +1,28 @@
+<div class="row justify-content-center">
+  <div class="col col-md-6">
+
+    <h1 class="text-center" ><%= t('.header') %></h1>
+
+    <%= form_with url: feedback_send_path do |form| %>
+
+      <p>
+        <%= form.label :email %>
+        <%= form.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control', placeholder: 'Enter email' %>
+      </p>
+
+      <p>
+        <%= form.label :subject %>
+        <%= form.text_field :subject, id: :subject, class: 'form-control' %>
+      </p>
+
+      <p>
+        <%= form.label :body %>
+        <%= form.text_area :body, id: :body, class: 'form-control', cols: "30", rows: "10", value: @last_body %>
+      </p>
+
+      <p> <%= form.submit class: 'btn btn-primary btn-block' %> </p>
+    <% end %>
+    <br>
+    <%= link_to t('back_tests'), root_path %>
+  </div>
+</div>

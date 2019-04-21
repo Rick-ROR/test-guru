@@ -101,6 +101,9 @@ ru:
     gist:
       success: "Новый %{url} успешно создан."
       failure: "Во время сохранения gist произошла ошибка!"
+  communication:
+    feedback:
+      header: "Мы ждём ваших Feedback'ов!"
 
   admin:
     tests:
