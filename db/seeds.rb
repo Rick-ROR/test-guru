@@ -45,7 +45,7 @@ answers_bodies = [
 users_names =  %w[Owner Rick Interviewed]
 
 users = users_names.map do |name|
-  User.create!(name: name, email: "#{name}@example.edu")
+  user = User.create!(name: name, email: "#{name}@example.edu", password: "#{name}@example.edu", confirmed_at: Time.now)
 end
 
 categories = categories_titles.map do |title|
@@ -67,7 +67,7 @@ answers_bodies.each.with_index(0) do |answers, index|
 end
 
 
-HistoryTest.create!(user_id: users[1].id, test_id: tests[0].id)
-HistoryTest.create!(user_id: users[1].id, test_id: tests[2].id)
-HistoryTest.create!(user_id: users[1].id, test_id: tests[3].id)
-HistoryTest.create!(user_id: users[2].id, test_id: tests[4].id)
+# HistoryTest.create!(user_id: users[1].id, test_id: tests[0].id)
+# HistoryTest.create!(user_id: users[1].id, test_id: tests[2].id)
+# HistoryTest.create!(user_id: users[1].id, test_id: tests[3].id)
+# HistoryTest.create!(user_id: users[2].id, test_id: tests[4].id)

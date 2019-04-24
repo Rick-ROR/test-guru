@@ -1,25 +1,31 @@
-<h1><%= t('.header', title: @history_test.test.title) %></h1>
+<div class="row justify-content-left">
+  <div class="col col-md-10">
+    <h3><%= t('.header', title: @history_test.test.title) %></h3>
+    <br>
 
-<p>
-  <%= @history_test.current_question.body %>
-</p>
+    <h3>
+      <%= @history_test.current_question.body %>
+    </h3>
+    <br>
 
-<%= form_with url: history_test_path(@history_test), local: true, method: :put do |form| %>
-  <%= form.collection_check_boxes :answer_ids, @history_test.current_question.answers, :id, :body, include_hidden: false do |b| %>
+    <%= form_with url: history_test_path(@history_test), local: true, method: :put do |form| %>
+      <%= form.collection_check_boxes :answer_ids, @history_test.current_question.answers, :id, :body, include_hidden: false do |b| %>
+        <p>
+          <%= b.check_box id: "answer_ids_#{b.object.id}" %>
+          <%= b.label %>
+        </p>
+      <% end %>
+      <p><%= form.submit t('.send'), class: 'btn btn-primary' %></p>
+    <% end %>
+
+
+    <div class="progress">
+      <%= content_tag :div, "Пройдено вопросов: " + @history_test.show_progress, class: 'progress-bar bg-info', data: { progress: @history_test.show_progress } %>
+    </div>
+    <br>
     <p>
-      <%= b.check_box id: "answer_ids_#{b.object.id}" %>
-      <%= b.label %>
+      <%= link_to t('back_tests'), tests_path %> |
+      <%= link_to t('.send2gist'), gist_history_test_path(@history_test), method: :post %>
     </p>
-  <% end %>
-
-  <p><%= link_to 'Gist Question', gist_history_test_path(@history_test), method: :post %></p>
-  <p><%= form.submit t('.send')%></p>
-<% end %>
-
-
-<div class="progress">
-  <%= content_tag :div, "Пройдено вопросов: " + @history_test.show_progress, class: 'progress-bar bg-info', data: { progress: @history_test.show_progress } %>
+  </div>
 </div>
-<p>
-  <%= link_to t('.back_tests'), tests_path %>
-</p>

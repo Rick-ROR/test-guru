@@ -4,6 +4,7 @@
     <%= render 'form_inline', test: test == @test ? @test : test %>
   </td>
   <td><%= test_level(test) %></td>
+  <td><%= test.category.title %></td>
   <td><%= test.questions.count %></td>
   <td><%= test.author.name %></td>
   <td><%= link_to t('show'), admin_test_path(test), class: "btn btn-info" %></td>

@@ -41,6 +41,7 @@ class HistoryTest < ApplicationRecord
   end
 
   def correct_answer?(answer_ids)
+    answer_ids = [] if answer_ids.nil?
     correct_answers.ids.sort == answer_ids.map(&:to_i).sort
   end
 

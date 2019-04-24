@@ -7,7 +7,7 @@ module ApplicationHelper
     link_to author, repo, target: "_blank"
   end
   
-  ALERT_CLASSES = { success: "success", notice: 'info', alert: 'danger' }
+  ALERT_CLASSES = { success: 'success', notice: 'info', alert: 'danger' }
   DEFAULT_ALERT = 'info'
 
   def bootstrap_alert(alert)

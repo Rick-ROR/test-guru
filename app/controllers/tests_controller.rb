@@ -5,7 +5,7 @@ class TestsController < ApplicationController
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_quest_404
 
   def index
-    @tests = Test.all
+    @tests = Test.joins(:questions).group(:id)
   end
 
   def start
