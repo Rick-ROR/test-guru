@@ -16,6 +16,8 @@ class User < ApplicationRecord
   has_many :author_tests, foreign_key: 'author_id', class_name: 'Test'
   has_many :gists
   has_many :question, through: :gists
+  has_many :user_badges
+  has_many :badges, through: :user_badges
   
   validates :name, :email, presence: true
   validates :email, uniqueness: { case_sensitive: false },

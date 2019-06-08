@@ -10,9 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_08_224641) do
+ActiveRecord::Schema.define(version: 2019_06_08_113715) do
 
-  create_table "answers", force: :cascade do |t|
+  create_table "answers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "body", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -21,13 +21,22 @@ ActiveRecord::Schema.define(version: 2019_04_08_224641) do
     t.index ["question_id"], name: "index_answers_on_question_id"
   end
 
-  create_table "categories", force: :cascade do |t|
+  create_table "badges", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "title", null: false
+    t.string "image", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "rule"
+    t.string "sub_rule"
+  end
+
+  create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "title", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "gists", force: :cascade do |t|
+  create_table "gists", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "url", null: false
     t.integer "user_id"
     t.integer "question_id"
@@ -37,7 +46,7 @@ ActiveRecord::Schema.define(version: 2019_04_08_224641) do
     t.index ["user_id"], name: "index_gists_on_user_id"
   end
 
-  create_table "history_tests", force: :cascade do |t|
+  create_table "history_tests", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "user_id"
     t.integer "test_id"
     t.datetime "created_at", null: false
@@ -49,7 +58,7 @@ ActiveRecord::Schema.define(version: 2019_04_08_224641) do
     t.index ["user_id"], name: "index_history_tests_on_user_id"
   end
 
-  create_table "questions", force: :cascade do |t|
+  create_table "questions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "body", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -57,7 +66,7 @@ ActiveRecord::Schema.define(version: 2019_04_08_224641) do
     t.index ["test_id"], name: "index_questions_on_test_id"
   end
 
-  create_table "tests", force: :cascade do |t|
+  create_table "tests", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "title", null: false
     t.integer "level", default: 0
     t.datetime "created_at", null: false
@@ -69,7 +78,18 @@ ActiveRecord::Schema.define(version: 2019_04_08_224641) do
     t.index ["title", "level"], name: "index_tests_on_title_and_level", unique: true
   end
 
-  create_table "users", force: :cascade do |t|
+  create_table "user_badges", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "badge_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "test_id"
+    t.index ["badge_id"], name: "index_user_badges_on_badge_id"
+    t.index ["test_id"], name: "index_user_badges_on_test_id"
+    t.index ["user_id"], name: "index_user_badges_on_user_id"
+  end
+
+  create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -94,4 +114,7 @@ ActiveRecord::Schema.define(version: 2019_04_08_224641) do
     t.index ["type"], name: "index_users_on_type"
   end
 
+  add_foreign_key "user_badges", "badges"
+  add_foreign_key "user_badges", "tests"
+  add_foreign_key "user_badges", "users"
 end

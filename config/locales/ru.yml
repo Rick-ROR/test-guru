@@ -33,9 +33,15 @@ ru:
   hello: "Хааай!"
   back: "Назад"
   back_tests: "Назад к тестам"
-  show: "Прочитать"
+
+  create: "Создать"
   edit: "Изменить"
+  show: "Прочитать"
   delete: "Удалить"
+  success: "Успешно!"
+
+  title: "Название"
+  date: "Дата"
 
   gist_params: "Вопрос теста %{title} от TestGuru"
   confirm: "Вы уверены?"
@@ -106,6 +112,13 @@ ru:
     feedback:
       header: "Мы ждём ваших Feedback'ов!"
 
+  badges:
+    index:
+      header: "Доступные бейджи"
+  user_badges:
+    index:
+      header: "Мои Бейджи"
+
   admin:
     tests:
       index:
@@ -135,6 +148,15 @@ ru:
         question: "Вопрос"
         author: "Автор"
         date: "Дата создания"
+    badges:
+      index:
+        header: "Доступные бейджи"
+        action: "Действия"
+        rule: "Правило"
+        sub_rule: "Условие"
+      new:
+        header: "Давайте создадим новый бейдж:"
+
 
 
   errors:

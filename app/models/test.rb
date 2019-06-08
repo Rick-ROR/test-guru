@@ -4,6 +4,7 @@ class Test < ApplicationRecord
   has_many :history_tests
   has_many :users, through: :history_tests
   belongs_to :author, class_name: 'User'
+  has_many :user_badges
 
   validates :title, presence: true
   validates :level, numericality: { only_integer: true, greater_than_or_equal_to: 0 }

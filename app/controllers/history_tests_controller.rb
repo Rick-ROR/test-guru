@@ -7,6 +7,7 @@ class HistoryTestsController < ApplicationController
 
   def	result
     @score = @history_test.score_test
+    BadgeDistributionService.new(@history_test).distribution
   end
 
   def	update
