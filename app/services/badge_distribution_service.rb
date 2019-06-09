@@ -2,16 +2,19 @@ class BadgeDistributionService
 
   RULES = Badge::LIST_RULES
 
+
   def initialize(history_test)
     @history_test = history_test
     @user = history_test.user
     @test = history_test.test
+    @badges = []
   end
 
   def distribution
       Badge.all.each do |badge|
         send badge.rule.downcase.tr(' ', '_'), badge
       end
+      @badges
   end
 
   private
@@ -57,6 +60,7 @@ class BadgeDistributionService
 
   def badge_award(badge)
     UserBadge.create(badge_id: badge.id, test_id: @test.id, user_id: @user.id)
+    @badges << badge
   end
 
 end

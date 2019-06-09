@@ -7,7 +7,6 @@ class HistoryTestsController < ApplicationController
 
   def	result
     @score = @history_test.score_test
-    BadgeDistributionService.new(@history_test).distribution
   end
 
   def	update
@@ -15,7 +14,15 @@ class HistoryTestsController < ApplicationController
 
     if @history_test.completed?
       TestsMailer.completed_test(@history_test).deliver_now
-      redirect_to result_history_test_path(@history_test)
+
+      badges = BadgeDistributionService.new(@history_test).distribution
+
+
+      flash_options = unless badges.empty?
+                        { notice: t('.success', badges: "#{badges.collect(&:title).join(', ')}") }
+                      end
+
+      redirect_to result_history_test_path(@history_test), flash_options
     else
       render :show
     end

@@ -108,6 +108,8 @@ ru:
     gist:
       success: "Новый %{url} успешно создан."
       failure: "Во время сохранения gist произошла ошибка!"
+    update:
+      success: "За прохождение теста Вам начислены следующие награды: %{badges}"
   communication:
     feedback:
       header: "Мы ждём ваших Feedback'ов!"
