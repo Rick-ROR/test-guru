@@ -10,20 +10,13 @@ class BadgeDistributionService
 
   def distribution
       Badge.all.each do |badge|
-
-        if badge.rule == RULES[0]
-          dist_level(badge)
-        elsif badge.rule == RULES[1]
-          dist_category(badge)
-        elsif badge.rule == RULES[2]
-          dist_first(badge)
-        end
+        send badge.rule.downcase.tr(' ', '_'), badge
       end
   end
 
   private
 
-  def dist_level(badge)
+  def all_on_level(badge)
 
     if badge.sub_rule !~ /[0-9]/
       return
@@ -37,30 +30,33 @@ class BadgeDistributionService
     all_test = Test.all.where(level: level).pluck(:id)
 
     if (all_test - user_test).empty?
-      UserBadge.create(badge_id: badge.id, test_id: @test.id, user_id: @user.id)
+      badge_award(badge)
     end
   end
 
-  def dist_category(badge)
+  def all_in_category(badge)
 
     category_title = badge.sub_rule
 
     return if @test.category.title != category_title || !@user.badges.where(id: badge).empty?
 
-    category = Category.where(title: category_title)
-    user_test = @user.tests.where(category: category).pluck(:id).uniq
-    all_test = Test.all.where(category: category).pluck(:id)
+    user_test = @user.tests.joins(:category).where(categories: { title: category_title }).pluck(:id).uniq
+    all_test = Test.get_by_category(category_title).pluck(:id)
 
     if (all_test - user_test).empty?
-      UserBadge.create(badge_id: badge.id, test_id: @test.id, user_id: @user.id)
+      badge_award(badge)
     end
   end
 
 
-  def dist_first(badge)
+  def pass_from_the_first_time(badge)
     if @user.history_tests.where(test_id: @test).count == 1 && @history_test.passed?
-      UserBadge.create(badge_id: badge.id, test_id: @test.id, user_id: @user.id)
+      badge_award(badge)
     end
+  end
+
+  def badge_award(badge)
+    UserBadge.create(badge_id: badge.id, test_id: @test.id, user_id: @user.id)
   end
 
 end
