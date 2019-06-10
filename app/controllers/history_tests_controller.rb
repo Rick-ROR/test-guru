@@ -22,7 +22,7 @@ class HistoryTestsController < ApplicationController
                         { notice: t('.success', badges: "#{badges.collect(&:title).join(', ')}") }
                       end
 
-      redirect_to result_history_test_path(@history_test), flash_options
+      redirect_to result_history_test_path(@history_test), flash_options || {}
     else
       render :show
     end
