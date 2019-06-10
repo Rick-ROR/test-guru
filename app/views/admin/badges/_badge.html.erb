@@ -1,0 +1,23 @@
+<tr>
+  <td>
+    <img src="<%= badge.image %>" style="width:100px;height:100px;">
+  </td>
+  <td><%= badge.title %></td>
+  <td><%= badge.rule %></td>
+  <td><%= badge.sub_rule %></td>
+  <td><%= badge.created_at.strftime("%Y.%m.%d %H:%M %p") %></td>
+  <td>
+
+  <td>
+  <%= link_to t('edit'),
+                edit_admin_badge_path(badge),
+                data: { badge_id: badge.id },
+                class: "btn btn-secondary" %>
+  </td>
+  <td>
+  <%= link_to t('delete'),
+                admin_badge_path(badge),
+                method: :delete,
+                data:	{	confirm: t('.confirm') }, class: "btn btn-warning"	%>
+  </td>
+</tr>

@@ -3,6 +3,8 @@
   <% if current_user&.admin? %>
     <%= link_to 'TestGuru Admin Panel', admin_tests_path, class: "navbar-brand" %>
   <% end %>
+
+  <%= link_to 'My Badges', user_badges_path, class: "navbar-brand" %>
   <span class="navbar-text">
     <%= render 'shared/nav'%>
   </span>

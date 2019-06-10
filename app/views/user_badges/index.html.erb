@@ -1,0 +1,20 @@
+<div class="p-3 bg-gradient-light text-dark">
+  <h1><%= t('.header') %>:</h1>
+</div>
+
+<p>
+  <%= link_to 'Посмотреть все доступные бейджи', badges_path, class: "navbar-brand" %>
+</p>
+
+<table class="table">
+  <thead class="thead-light">
+    <tr>
+      <th></th>
+      <th><%= t('title') %></th>
+      <th>Тест</th>
+      <th><%= t('date') %></th>
+    </tr>
+  </thead>
+
+  <%= render @user_badges %>
+</table>

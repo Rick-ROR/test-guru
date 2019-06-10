@@ -1,0 +1,16 @@
+<div class="p-3 bg-gradient-light text-dark">
+  <h1><%= t('.header') %>:</h1>
+</div>
+
+<table class="table">
+  <thead class="thead-light">
+    <tr>
+      <th></th>
+      <th><%= t('title') %></th>
+<!--      <th>Тест</th>-->
+      <th><%= t('date') %></th>
+    </tr>
+  </thead>
+
+  <%= render @badges %>
+</table>
