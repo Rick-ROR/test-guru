@@ -15,7 +15,7 @@ class HistoryTestsController < ApplicationController
     if @history_test.completed?
       TestsMailer.completed_test(@history_test).deliver_now
 
-      badges = BadgeDistributionService.new(@history_test).distribution
+      badges = BadgeDistributionService.new(@history_test).distribution.compact
 
 
       flash_options = unless badges.empty?
