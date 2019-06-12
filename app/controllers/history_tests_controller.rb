@@ -1,8 +1,12 @@
 class HistoryTestsController < ApplicationController
 
   before_action :get_history_test, only: %i[show result update gist]
+  before_action :set_timeout, only: %i[show result update gist]
 
   def	show
+    # update_timeout
+    #
+    # byebug
   end
 
   def	result
@@ -26,6 +30,7 @@ class HistoryTestsController < ApplicationController
     else
       render :show
     end
+    # byebug
   end
 
   def gist
@@ -47,5 +52,27 @@ class HistoryTestsController < ApplicationController
 
   def get_history_test
     @history_test = HistoryTest.find(params[:id])
+    @timeout = Time.now - @history_test.start_time
+  end
+
+  # если self.timeout NoMethodError: private method `timeout' called for #<HistoryTestsController:0x00007f8a348c1ed0>
+  # def update_timeout
+  #   if @history_test.timeout == nil
+  #     @history_test.update(timeout: Time.now)
+  #   end
+  # end
+  # +++
+  # def update_timeout
+  #   if HistoryTest.find(params[:id]).timeout == nil
+  #     HistoryTest.find(params[:id]).update(timeout: Time.now)
+  #   end
+  # end
+
+  def set_timeout
+    if @history_test.test.time == 0
+      @timeout = nil
+    else
+      @timeout = (@history_test.test.time * 60 - (Time.now - @history_test.start_time)).round
+    end
   end
 end

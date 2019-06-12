@@ -34,6 +34,7 @@ class HistoryTest < ApplicationRecord
 
   def before_validation_set_question
     if current_question.nil?
+      self.start_time = Time.now
       self.current_question = test.questions.first if test.present?
     else
       self.current_question = test.questions.order(:id).where('id > ?', current_question.id).first

@@ -3,6 +3,15 @@
     <h3><%= t('.header', title: @history_test.test.title) %></h3>
     <br>
 
+    <% unless @timeout.nil? %>
+      <%= content_tag :div, class: "py-3 timer", data: { timeout: @timeout } do
+        content_tag(:span, t('.timer')) +
+        content_tag(:span, "", :class => "timeout")
+      end %>
+
+      <%= content_tag :div, t('.ended'), class: "py-3 ended hide" %>
+    <% end %>
+
     <h3>
       <%= @history_test.current_question.body %>
     </h3>

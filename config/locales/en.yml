@@ -94,6 +94,8 @@ en:
       show_progress: "Test progress: %{show}"
       send: "Send"
       send2gist: "Send question to Gist"
+      timer: "Remaining time to pass the test: "
+      ended: "The time for passing the test is over, the answers are no longer applied, you will be redirected to the results page."
     gist:
       success: "%{url} was successfully created."
       failure: "An error occurred while saving gist!"
