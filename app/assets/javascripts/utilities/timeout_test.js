@@ -16,7 +16,7 @@ document.addEventListener('turbolinks:load', function() {
             timeout_secs -= 1
             timeoutRaw.classList.add('hide')
             document.querySelector('.ended').classList.remove('hide')
-        }else {
+        } else {
             window.location.href = document.location + '/result'
         }
     }
