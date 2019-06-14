@@ -97,14 +97,18 @@ ru:
      author: "Автор"
      action: "Действия"
      questions: "Вопросов"
+     timer: "Время"
     test:
       start: "Старт"
+      time: "%{time} мин"
   history_tests:
     show:
       header: "Прохождение теста %{title}:"
       show_progress: "Вопросов: %{show}"
       send: "Отправить"
       send2gist: "Отправить вопрос на Gist"
+      timer: "Оставшееся время для прохождения теста: "
+      ended: "Время прохождения теста закончилось, ответы больше не примаются, вы будете перенаправлены на страницу с результатами."
     gist:
       success: "Новый %{url} успешно создан."
       failure: "Во время сохранения gist произошла ошибка!"
@@ -130,6 +134,7 @@ ru:
         author: "Автор"
         action: "Действия"
         questions: "Вопросы"
+        timer: "Время"
         create: "Создать тест"
       show:
         title: "Название"
@@ -138,6 +143,7 @@ ru:
         add_new: "Добавить новый"
       test:
         confirm: "Вы уверены?"
+        time: "%{time} мин"
       edit:
         header: "Здесь можно изменить тест: %{title}!"
       create:

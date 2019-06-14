@@ -1,6 +1,7 @@
 class HistoryTestsController < ApplicationController
 
   before_action :get_history_test, only: %i[show result update gist]
+  before_action :set_timeout, only: %i[show update]
 
   def	show
   end
@@ -12,7 +13,7 @@ class HistoryTestsController < ApplicationController
   def	update
     @history_test.accept!(params[:answer_ids])
 
-    if @history_test.completed?
+    if @history_test.completed? || @timeout <= 0
       TestsMailer.completed_test(@history_test).deliver_now
 
       badges = BadgeDistributionService.new(@history_test).distribution.compact
@@ -47,5 +48,13 @@ class HistoryTestsController < ApplicationController
 
   def get_history_test
     @history_test = HistoryTest.find(params[:id])
+  end
+
+  def set_timeout
+    if @history_test.test.time == 0
+      @timeout = nil
+    else
+      @timeout = (@history_test.test.time * 60 - (Time.now - @history_test.created_at)).round
+    end
   end
 end

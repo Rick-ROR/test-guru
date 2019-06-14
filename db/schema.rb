@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_08_113715) do
+ActiveRecord::Schema.define(version: 2019_06_12_184020) do
 
   create_table "answers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "body", null: false
@@ -73,6 +73,7 @@ ActiveRecord::Schema.define(version: 2019_06_08_113715) do
     t.datetime "updated_at", null: false
     t.integer "category_id"
     t.integer "author_id"
+    t.integer "time", default: 0
     t.index ["author_id"], name: "index_tests_on_author_id"
     t.index ["category_id"], name: "index_tests_on_category_id"
     t.index ["title", "level"], name: "index_tests_on_title_and_level", unique: true

@@ -15,6 +15,10 @@
     <%= form.label :category_id %>
     <%= form.collection_select :category_id, Category.all, :id, :title, promt: true %>
   </p>
+  <p>
+    <%= form.label :time %>
+    <%= form.number_field :time, id: :time %>
+  </p>
 
   <p>
     <%= form.label :author_id %>
