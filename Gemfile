@@ -36,7 +36,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 
 
 # AUTH
-gem 'devise', '~> 4.0'
+gem 'devise', '~> 4.7'
 
 # LOCALIZATION
 gem 'rails-i18n'
